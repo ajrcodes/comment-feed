@@ -25,13 +25,13 @@ class CommentsController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableview.dataSource = self
-        //tableview.delegate = self
+        commentFeed.add(comment: Comment())
         setupView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupView()
         tableview.reloadData()
     }
     
@@ -57,6 +57,7 @@ class CommentsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
+        self.tableview.rowHeight = 135
         
         // setup the cell to be used in the table view
         cell.comment = sortedComments[indexPath.row]

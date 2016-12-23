@@ -96,9 +96,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="replyCount" destination="hOo-3u-mJJ" id="C3s-we-Gi9"/>
-                                    <outlet property="text" destination="0Hq-fI-rsE" id="iw3-eN-XqV"/>
                                     <outlet property="textBox" destination="0Hq-fI-rsE" id="FRe-HD-WGp"/>
-                                    <outlet property="time" destination="wh4-Vt-wlX" id="Mzf-je-4t2"/>
                                     <outlet property="timeStamp" destination="wh4-Vt-wlX" id="tON-zX-Fwd"/>
                                     <outlet property="voteCount" destination="yOY-RX-yOC" id="l6z-6b-GAs"/>
                                 </connections>

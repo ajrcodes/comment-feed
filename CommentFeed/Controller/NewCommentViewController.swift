@@ -25,8 +25,8 @@ class NewCommentViewController: UIViewController {
     @IBAction func addComment(_ sender: Any) {
         // create and configure new comment object
         var newComment = Comment()
-        newComment.id = 10
-        newComment.text = "lalala"
+        newComment.id = Int(arc4random())
+        newComment.text = textView.text
         newComment.time = Date()
         
         // add comment to the comment feed
