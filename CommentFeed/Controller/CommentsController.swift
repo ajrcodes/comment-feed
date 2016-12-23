@@ -10,6 +10,11 @@ import UIKit
 
 class CommentsController: UITableViewController {
     
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var tableview: UITableView!
+    
+    
     // MARK: - Stored Properties
     
     var commentFeed = CommentFeed()
@@ -20,7 +25,14 @@ class CommentsController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //tableview.dataSource = self
+        //tableview.delegate = self
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableview.reloadData()
     }
     
     func setupView() {
@@ -90,14 +102,15 @@ class CommentsController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier != nil {
+            let newCommentVC = segue.destination as! NewCommentViewController
+            newCommentVC.delegate = self
+        }
     }
-    */
+    
 
 }

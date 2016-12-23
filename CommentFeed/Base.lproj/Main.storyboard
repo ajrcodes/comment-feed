@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xul-o7-IyC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Comments Controller-->
         <scene sceneID="Rtd-WQ-YQL">
             <objects>
-                <tableViewController id="gSu-dq-SIy" sceneMemberID="viewController">
+                <tableViewController id="gSu-dq-SIy" customClass="CommentsController" customModule="CommentFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gpi-sv-XSP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3p9-fJ-EX9" id="U4S-dg-aLo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="134.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hq-fI-rsE">
@@ -112,13 +112,65 @@
                     <navigationItem key="navigationItem" id="JZI-SE-Tsy">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="5rr-Yy-HOF">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="JVQ-d5-bHu" kind="show" identifier="addComment" id="qOO-g5-oTG"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="gpi-sv-XSP" id="YBm-Ak-d2S"/>
+                        <outlet property="tableview" destination="gpi-sv-XSP" id="0wM-cf-atX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2f-cy-sL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776.79999999999995" y="-397.15142428785612"/>
+        </scene>
+        <!--New Comment View Controller-->
+        <scene sceneID="vFO-Bz-8dI">
+            <objects>
+                <viewController id="JVQ-d5-bHu" customClass="NewCommentViewController" customModule="CommentFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jNI-mX-vN5"/>
+                        <viewControllerLayoutGuide type="bottom" id="TQD-ho-hhp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aCK-9b-ujz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" text="What do you have to say?" translatesAutoresizingMaskIntoConstraints="NO" id="kke-Vr-kZW">
+                                <rect key="frame" x="32.5" y="114" width="310" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="EAP-Q9-mtP"/>
+                                    <constraint firstAttribute="width" constant="310" id="lj5-Rh-DKh"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kke-Vr-kZW" firstAttribute="centerX" secondItem="aCK-9b-ujz" secondAttribute="centerX" id="QeX-YQ-uYt"/>
+                            <constraint firstItem="kke-Vr-kZW" firstAttribute="top" secondItem="jNI-mX-vN5" secondAttribute="bottom" constant="50" id="YM6-7L-Ffc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="u5g-gn-xvc">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="vNN-xG-2hf">
+                            <connections>
+                                <action selector="addComment:" destination="JVQ-d5-bHu" id="xlk-ft-wf1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="kke-Vr-kZW" id="vqN-jP-gMH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JPo-dX-YAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592.8" y="-397.15142428785612"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oh4-Ci-7To">

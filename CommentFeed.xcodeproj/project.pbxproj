@@ -10,6 +10,7 @@
 		104CC8FC1E0C4CD40057F638 /* CommentFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CC8FB1E0C4CD40057F638 /* CommentFeed.swift */; };
 		104CC9041E0C7E330057F638 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CC9031E0C7E330057F638 /* CommentsController.swift */; };
 		104CC90A1E0CA2020057F638 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CC9091E0CA2020057F638 /* CommentCell.swift */; };
+		10E858FB1E0CCFBA0006E831 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E858FA1E0CCFBA0006E831 /* NewCommentViewController.swift */; };
 		10FDE37B1E04E600006E6E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FDE37A1E04E600006E6E72 /* AppDelegate.swift */; };
 		10FDE37D1E04E600006E6E72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FDE37C1E04E600006E6E72 /* ViewController.swift */; };
 		10FDE3801E04E600006E6E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FDE37E1E04E600006E6E72 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		104CC8FB1E0C4CD40057F638 /* CommentFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentFeed.swift; sourceTree = "<group>"; };
 		104CC9031E0C7E330057F638 /* CommentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsController.swift; path = Controller/CommentsController.swift; sourceTree = "<group>"; };
 		104CC9091E0CA2020057F638 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		10E858FA1E0CCFBA0006E831 /* NewCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewCommentViewController.swift; path = Controller/NewCommentViewController.swift; sourceTree = "<group>"; };
 		10FDE3771E04E600006E6E72 /* CommentFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommentFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FDE37A1E04E600006E6E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FDE37C1E04E600006E6E72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				104CC9031E0C7E330057F638 /* CommentsController.swift */,
+				10E858FA1E0CCFBA0006E831 /* NewCommentViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				10FDE37B1E04E600006E6E72 /* AppDelegate.swift in Sources */,
 				104CC9041E0C7E330057F638 /* CommentsController.swift in Sources */,
 				104CC8FC1E0C4CD40057F638 /* CommentFeed.swift in Sources */,
+				10E858FB1E0CCFBA0006E831 /* NewCommentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
