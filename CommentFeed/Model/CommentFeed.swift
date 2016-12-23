@@ -15,18 +15,18 @@ import UIKit
 protocol PostType {
     var id: Int { get }
     var text: String { get set }
-    var time: NSDate { get }
+    var time: Date { get }
 }
 
 
 // MARK: - Concrete Types
 
 struct Comment: PostType {
-    var id: Int
-    var text: String
-    var upvotes: Int
-    var downvotes: Int
-    var time: NSDate
+    var id: Int = 0
+    var text: String = ""
+    var upvotes: Int = 0
+    var downvotes: Int = 0
+    var time: Date = Date()
     
     func netVoteCount() -> Int {
         return upvotes - downvotes
@@ -34,9 +34,9 @@ struct Comment: PostType {
 }
 
 struct Reply: PostType {
-    var id: Int
-    var text: String
-    var time: NSDate
+    var id: Int = 0
+    var text: String = ""
+    var time: Date = Date()
 }
 
 class CommentFeed {
@@ -60,6 +60,10 @@ class CommentFeed {
     
     func downvote(commentID: Int) {
         comments[commentID]!.downvotes -= 1
+    }
+    
+    func getSortedComments() -> [Comment] {
+        return Array(comments.values).sorted { $0.time < $1.time }
     }
 }
 
