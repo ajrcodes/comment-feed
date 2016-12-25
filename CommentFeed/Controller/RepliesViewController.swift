@@ -1,40 +1,28 @@
 //
-//  NewCommentViewController.swift
+//  RepliesViewController.swift
 //  CommentFeed
 //
-//  Created by Andrew Roberts on 12/22/16.
+//  Created by Andrew Roberts on 12/24/16.
 //  Copyright © 2016 ajrcodes. All rights reserved.
 //
 
 import UIKit
 
-class NewCommentViewController: UIViewController {
-    
+class RepliesViewController: UIViewController {
+
     // MARK: - Stored Properties
     
-    var delegate = CommentsViewController()
-
+    var comment: Comment = Comment()
+    var delegate: CommentsViewController = CommentsViewController()
+    
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var textView: UITextView!
     
     
-    // MARK: - IBActions
     
-    @IBAction func addComment(_ sender: Any) {
-        // create and configure new comment object
-        var newComment = Comment()
-        newComment.id = Int(arc4random())
-        newComment.text = textView.text
-        newComment.time = Date()
-        
-        // add comment to the comment feed
-        delegate.commentFeed.add(comment: newComment)
-        
-        // segue over
-        _ = self.navigationController?.popViewController(animated: true)
-    }
+    
+    
     
     
     // MARK: - Life Cycle

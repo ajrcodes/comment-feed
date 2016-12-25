@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentsController: UITableViewController {
+class CommentsViewController: UITableViewController {
     
     // MARK: - IBOutlets
     

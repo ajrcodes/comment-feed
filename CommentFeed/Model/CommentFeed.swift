@@ -59,11 +59,11 @@ class CommentFeed {
     }
     
     func downvote(commentID: Int) {
-        comments[commentID]!.downvotes -= 1
+        comments[commentID]!.downvotes += 1
     }
     
     func getSortedComments() -> [Comment] {
-        return Array(comments.values).sorted { $0.time < $1.time }
+        return Array(comments.values).sorted { $0.time > $1.time }
     }
 }
 
