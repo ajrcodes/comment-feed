@@ -27,9 +27,10 @@ struct Comment: PostType {
     var upvotes: Int = 0
     var downvotes: Int = 0
     var time: Date = Date()
+    var replyFeed: ReplyFeed = ReplyFeed()
     
-    func netVoteCount() -> Int {
-        return upvotes - downvotes
+    func netVoteCount() -> String {
+        return String(upvotes - downvotes)
     }
 }
 

@@ -107,11 +107,21 @@ class CommentsViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != nil {
-            let newCommentVC = segue.destination as! NewCommentViewController
-            newCommentVC.delegate = self
+        if let identifier = segue.identifier {
+            
+            if (identifier == "addComment") {
+                let newCommentVC = segue.destination as! NewCommentViewController
+                newCommentVC.delegate = self
+            }
+            
+            if (identifier == "replyPress") {
+                let replyFeedVC = segue.destination as! RepliesViewController
+                replyFeedVC.delegate = self
+                replyFeedVC.comment = commentFeed.get(commentID: sender as! Int)
+            }
+            
         }
     }
-    
 
+    
 }
