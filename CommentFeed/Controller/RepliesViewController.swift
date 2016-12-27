@@ -21,7 +21,6 @@ class RepliesViewController: UIViewController, UITableViewDelegate, UITableViewD
     // comment being displayed
     @IBOutlet weak var textBox: UILabel!
     @IBOutlet weak var timeStamp: UILabel!
-    @IBOutlet weak var replyCount: UILabel!
     @IBOutlet weak var voteCount: UILabel!
     @IBOutlet weak var textField: UITextField!
     // table of replies
@@ -31,9 +30,11 @@ class RepliesViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - IBActions
     
     @IBAction func upvoteAction() {
+        delegate.commentFeed.upvote(commentID: comment.id)
     }
     
     @IBAction func downvoteAction() {
+        delegate.commentFeed.downvote(commentID: comment.id)
     }
     
     @IBAction func addReply() {
@@ -63,7 +64,7 @@ class RepliesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReplyCell", for: indexPath) as! ReplyCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "replyCell", for: indexPath) as! ReplyCell
         self.tableview.rowHeight = 60
         
         // setup the cell to be used in the table view
@@ -79,6 +80,7 @@ class RepliesViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComment()
+        setupTable()
         // Do any additional setup after loading the view.
     }
 
@@ -91,6 +93,11 @@ class RepliesViewController: UIViewController, UITableViewDelegate, UITableViewD
         textBox.text = comment.text
         timeStamp.text = DataHelper.timeAgoSinceDate(date: comment.time, numericDates: true)
         voteCount.text = comment.netVoteCount()
+    }
+    
+    func setupTable() {
+        tableview.delegate = self
+        tableview.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
